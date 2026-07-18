@@ -524,6 +524,10 @@ body.dark-mode .theme-toggle__thumb {
   width: 80px;
   height: 80px;
 }
+.area-radius-card__icon--coverage {
+  width: 60px;
+  height: 60px;
+}
 .area-radius-card__area-title {
   font-size: .8rem;
   font-weight: 500;
