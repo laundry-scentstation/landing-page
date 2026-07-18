@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScentStation Laundry – Coming Soon</title>
+  <meta name="description" content="ScentStation Laundry – Layanan laundry antar-jemput dengan personalisasi aroma. Segera hadir di Alam Sutera, Gading Serpong, dan BSD." />
+  <link rel="icon" type="image/png" href="Assets/Favicon_SSL.png" />
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Preload hero background image (LCP resource) -->
+  <link rel="preload" as="image" href="Assets/hero-bg.jpg" />
+
+  <!-- Load Google Fonts async to avoid render blocking (only weights actually used) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =========================================
+       NAVBAR
+  ========================================== -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="#hero" class="navbar__brand">
+        <img src="Assets/Logo-SSL.png" alt="ScentStation Laundry" class="navbar__logo" width="72" height="36" />
+        <span class="navbar__name">ScentStation Laundry</span>
+      </a>
+      <div class="navbar__right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle mode">
+          <span class="theme-toggle__icon theme-toggle__icon--sun">☀️</span>
+          <span class="theme-toggle__track">
+            <span class="theme-toggle__thumb"></span>
+          </span>
+          <span class="theme-toggle__icon theme-toggle__icon--moon">🌙</span>
+        </button>
+        <a href="#hero" class="btn btn--primary navbar__cta" onclick="scrollToForm(event)">
+          Daftar Early Access
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =========================================
+       HERO SECTION
+  ========================================== -->
+  <section class="hero" id="hero">
+    <div class="hero__container">
+
+      <!-- LEFT COLUMN -->
+      <div class="hero__left">
+        <div class="hero__brand-header">
+          <div class="hero__badges">
+            <span class="badge badge--coming-soon">Coming Soon</span>
+            <span class="badge badge--location">Segera hadir di Serpong Utara</span>
+          </div>
+
+          <img src="Assets/Logo-SSL.png" alt="ScentStation Laundry Logo" class="hero__logo" width="280" height="140" fetchpriority="high" />
+        </div>
+
+        <h1 class="hero__headline">Laundry Aroma<br />sesuai pilihanmu.</h1>
+        <p class="hero__subheadline">
+          Daftarkan dirimu sekarang untuk dapatkan harga khusus Early Bird
+          dan masuk ke waiting list pelanggan ScentStation&nbsp;Laundry.
+        </p>
+
+        <div class="hero__chips">
+          <span class="chip">
+            <img src="Assets/flower-icon.png" alt="" class="chip__icon" width="18" height="18" />
+            Pilih aromamu
+          </span>
+          <span class="chip">
+            <img src="Assets/delivery-icon.png" alt="" class="chip__icon" width="18" height="18" />
+            Antar-jemput via WhatsApp
+          </span>
+          <span class="chip">
+            <img src="Assets/reward-icon.png" alt="" class="chip__icon" width="18" height="18" />
+            Loyalty reward
+          </span>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN – LEAD FORM -->
+      <div class="hero__right">
+        <div class="lead-form-card" id="lead-form-card">
+          <h2 class="lead-form-card__title">Klaim Voucher-mu!</h2>
+          <p class="lead-form-card__subtitle">Dapatkan potongan harga Rp100.000 dan jadilah pelanggan pertama ScentStation Laundry.</p>
+
+          <form id="leadForm" novalidate>
+            <div class="form-group">
+              <label for="nama" class="form-label">Nama</label>
+              <input
+                type="text"
+                id="nama"
+                name="nama"
+                class="form-input"
+                placeholder="Nama lengkap"
+                autocomplete="name"
+                required
+              />
+              <span class="form-error" id="namaError">Nama wajib diisi.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="instagram" class="form-label">Username Instagram</label>
+              <div class="input-instagram-wrap">
+                <span class="input-instagram-prefix">@</span>
+                <input
+                  type="text"
+                  id="instagram"
+                  name="instagram"
+                  class="form-input form-input--instagram"
+                  placeholder="username"
+                  autocomplete="off"
+                  required
+                />
+              </div>
+              <span class="form-error" id="instagramError">Username Instagram wajib diisi.</span>
+            </div>
+
+            <div class="form-checkbox-wrap">
+              <input type="checkbox" id="privacyConsent" name="privacyConsent" class="form-checkbox" required />
+              <label for="privacyConsent" class="form-checkbox-label">
+                Dengan mendaftar, kamu menyetujui
+                <button type="button" class="link-btn" id="openPrivacyPolicy">Privacy Policy</button>
+                kami.
+              </label>
+            </div>
+            <span class="form-error" id="consentError">Kamu perlu menyetujui Privacy Policy untuk melanjutkan.</span>
+
+            <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+              Klaim Early Access Offer
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SECTION: KENAPA SCENTSTATION
+  ========================================== -->
+  <section class="section section--light" id="kenapa">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Kenapa ScentStation Laundry?</h2>
+        <p class="section-sub">Lebih dari sekadar laundry biasa.</p>
+      </div>
+
+      <div class="cards-3">
+        <!-- Card 1 -->
+        <div class="value-card">
+          <div class="value-card__icon-wrap">
+            <img src="Assets/delivery-icon.png" alt="Pickup & Delivery" class="value-card__icon" width="42" height="42" loading="lazy" />
+          </div>
+          <h3 class="value-card__title">Praktis, Efisien &amp; Space Saving</h3>
+          <p class="value-card__body">
+            Nggak perlu keluar rumah. Nggak perlu antri. Saat kami buka, cukup WhatsApp untuk jadwal
+            antar-jemput. Kamu bisa hemat waktumu.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="value-card">
+          <div class="value-card__icon-wrap">
+            <img src="Assets/flower-icon.png" alt="Pilih Aroma" class="value-card__icon" width="42" height="42" loading="lazy" />
+          </div>
+          <h3 class="value-card__title">Wangi Favorit Pilihanmu</h3>
+          <p class="value-card__body">
+            Bosan semua laundry beraroma sama? Kamu bebas pilih aroma favorit: Flowery Bloom,
+            Soft Powder, atau Fresh Cotton. Makin nyaman dengan baju favoritmu.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="value-card">
+          <div class="value-card__icon-wrap">
+            <img src="Assets/reward-icon.png" alt="Loyalty Reward" class="value-card__icon" width="42" height="42" loading="lazy" />
+          </div>
+          <h3 class="value-card__title">Rewarding &amp; Customer Loyalty</h3>
+          <p class="value-card__body">
+            Makin sering, makin untung. 6 stempel = ekstra 5&nbsp;kg laundry. Kami menghargai kehadiranmu.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SECTION: PILIH AROMA
+  ========================================== -->
+  <section class="section section--white" id="aroma">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Pilih wangi yang paling kamu suka</h2>
+        <p class="section-sub">
+          Setiap cucian bisa kamu sesuaikan dengan salah satu dari tiga signature scent kami.
+          Nanti, tinggal pilih saat pesan.
+        </p>
+      </div>
+
+      <div class="aroma-grid">
+        <!-- Flowery Bloom -->
+        <div class="aroma-card aroma-card--floral">
+          <div class="aroma-card__visual">
+            <img src="Assets/floral-illustration.png" alt="Flowery Bloom" class="aroma-card__img" loading="lazy" />
+          </div>
+          <div class="aroma-card__content">
+            <span class="aroma-badge">Flowery Bloom</span>
+            <p class="aroma-card__desc">
+              Aroma bunga melati, lily, dan peony yang lembut dan elegan. Bikin pakaianmu terasa
+              seharum baru keluar dari butik atau hotel.
+            </p>
+          </div>
+        </div>
+
+        <!-- Soft Powder -->
+        <div class="aroma-card aroma-card--powder">
+          <div class="aroma-card__visual">
+            <img src="Assets/powdery-illustration.png" alt="Soft Powder" class="aroma-card__img" loading="lazy" />
+          </div>
+          <div class="aroma-card__content">
+            <span class="aroma-badge">Soft Powder</span>
+            <p class="aroma-card__desc">
+              Wangi bedak bayi, musk, dan vanilla yang ringan. Memberi kesan hangat, bersih, dan
+              menenangkan sepanjang hari.
+            </p>
+          </div>
+        </div>
+
+        <!-- Fresh Cotton -->
+        <div class="aroma-card aroma-card--cotton">
+          <div class="aroma-card__visual">
+            <img src="Assets/fresh-illustration.png" alt="Fresh Cotton" class="aroma-card__img" loading="lazy" />
+          </div>
+          <div class="aroma-card__content">
+            <span class="aroma-badge">Fresh Cotton</span>
+            <p class="aroma-card__desc">
+              Aroma katun bersih dengan sentuhan linen dan citrus ringan. Sensasi pakaian baru
+              dicuci yang segar dan tahan lama.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="aroma-cta">
+        <p class="aroma-cta__text">
+          Sudah kebayang wangi favoritmu? Daftar Early Access sekarang untuk jadi yang pertama
+          mencobanya saat kami buka.
+        </p>
+        <a href="#hero" class="btn btn--primary aroma-cta__btn">Daftar Early Access</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SECTION: PAKET LANGGANAN
+  ========================================== -->
+  <section class="section section--light" id="paket">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Paket berlangganan yang akan hadir</h2>
+        <p class="section-sub">
+          Daftar Early Access Sekarang dan pilih paket langganan sesuai kebutuhanmu
+          untuk dapatkan harga promo di ScentStation Laundry.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- SCENT REGULAR -->
+        <div class="pricing-card">
+          <div class="pricing-card__header">
+            <div class="pricing-card__illustration">
+              <img src="Assets/paketregular-illustration.png" alt="Scent Regular" loading="lazy" />
+            </div>
+            <span class="pricing-badge pricing-badge--basic">Basic</span>
+            <h3 class="pricing-card__name">Scent Regular</h3>
+            <div class="pricing-card__price-block">
+              <span class="pricing-card__price-original">Rp299.000</span>
+              <div class="pricing-card__price-row">
+                <span class="pricing-card__price">Rp199.000</span>
+                <span class="pricing-card__period">/ bulan</span>
+                <span class="badge badge--early-access">Early Access Offer</span>
+              </div>
+            </div>
+            <p class="pricing-card__fit">
+              Cocok untuk: <strong>Mahasiswa, Fresh graduate, Single professional</strong>
+            </p>
+          </div>
+
+          <ul class="pricing-card__features">
+            <li><span class="feat-icon">✓</span> Kuota <strong>30 kg</strong> per bulan</li>
+            <li><span class="feat-icon">✓</span> Bebas pilih aroma sesuai keinginanmu</li>
+            <li><span class="feat-icon">✓</span> Include pickup &amp; delivery radius 10 km</li>
+            <li><span class="feat-icon">✓</span> Include cuci + kering + setrika</li>
+            <li><span class="feat-icon">✓</span> Pickup <strong>2x</strong> per minggu</li>
+            <li><span class="feat-icon">✓</span> Selesai dalam <strong>3 hari</strong></li>
+            <li><span class="feat-icon">✓</span> 1 stamp setiap bulan untuk bonus lainnya</li>
+            <li><span class="feat-icon">✓</span> Ekstra cuci &amp; setrika 2 pasang baju dan celana</li>
+          </ul>
+
+          <p class="pricing-card__highlight">
+            Solusi hemat untuk kebutuhan rutin laundry mu
+          </p>
+
+          <a href="#hero" class="btn btn--outline btn--full pricing-btn" onclick="scrollToForm(event)">
+            Klaim Sekarang
+          </a>
+        </div>
+
+        <!-- SCENT EXPRESS -->
+        <div class="pricing-card pricing-card--popular">
+          <div class="pricing-card__header">
+            <div class="pricing-card__illustration">
+              <img src="Assets/paketexpress-illustration.png" alt="Scent Express" loading="lazy" />
+            </div>
+            <span class="pricing-badge pricing-badge--popular">Paling Populer</span>
+            <h3 class="pricing-card__name">Scent Express</h3>
+            <div class="pricing-card__price-block">
+              <span class="pricing-card__price-original">Rp499.000</span>
+              <div class="pricing-card__price-row">
+                <span class="pricing-card__price">Rp399.000</span>
+                <span class="pricing-card__period">/ bulan</span>
+                <span class="badge badge--early-access">Early Access Offer</span>
+              </div>
+            </div>
+            <p class="pricing-card__fit">
+              Cocok untuk: <strong>Profesional sibuk, Freelancer, Pasangan baru menikah, Keluarga kecil</strong>
+            </p>
+          </div>
+
+          <ul class="pricing-card__features">
+            <li><span class="feat-icon">✓</span> Kuota <strong>35 kg</strong> per bulan</li>
+            <li><span class="feat-icon">✓</span> Bebas pilih aroma sesuai keinginanmu</li>
+            <li><span class="feat-icon">✓</span> Include pickup &amp; delivery radius 10 km</li>
+            <li><span class="feat-icon">✓</span> Include cuci + kering + setrika</li>
+            <li><span class="feat-icon">✓</span> Pickup <strong>3x</strong> per minggu</li>
+            <li><span class="feat-icon">✓</span> Selesai dalam <strong>1 hari</strong></li>
+            <li><span class="feat-icon">✓</span> 2 stamp setiap bulan untuk bonus lainnya</li>
+            <li><span class="feat-icon">✓</span> Ekstra cuci &amp; setrika 4 pasang baju dan celana</li>
+          </ul>
+
+          <a href="#hero" class="btn btn--primary btn--full pricing-btn" onclick="scrollToForm(event)">
+            Klaim Sekarang
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SECTION: PICKUP & DELIVERY AREA
+  ========================================== -->
+  <section class="section section--white" id="area">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Area layanan ScentStation Laundry</h2>
+        <p class="section-sub">
+          Saat kami buka, layanan pickup &amp; delivery ScentStation akan menjangkau wilayah-wilayah
+          berikut.
+        </p>
+      </div>
+
+      <div class="area-content">
+        <div class="area-map">
+          <img src="Assets/New_Map_SSL.png" alt="Peta area layanan ScentStation Laundry" class="area-map__img" loading="lazy" />
+        </div>
+        <div class="area-chips-wrap">
+          <div class="area-radius-card area-radius-card--area">
+            <img src="Assets/location-icon.png" alt="Lokasi" class="area-radius-card__icon" width="40" height="40" loading="lazy" />
+            <p class="area-radius-card__area-title">Area Layanan</p>
+            <p class="area-radius-card__number area-radius-card__number--sm">Serpong Utara</p>
+          </div>
+          <div class="area-radius-card">
+            <img src="Assets/delivery-icon.png" alt="Delivery" class="area-radius-card__icon" width="40" height="40" loading="lazy" />
+            <p class="area-radius-card__number">10 Km</p>
+            <p class="area-radius-card__label">Radius Bebas<br />Antar-Jemput</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SECTION: CUSTOMER REWARD
+  ========================================== -->
+  <section class="section section--navy" id="reward">
+    <div class="container">
+      <div class="section-header section-header--light">
+        <h2 class="section-title">Makin sering laundry, makin banyak bonus</h2>
+        <p class="section-sub">
+          Setiap paket langganan bulanan memberimu stempel. Kumpulkan begitu kami buka dan tukar
+          jadi bonus berikut.
+        </p>
+      </div>
+
+      <div class="reward-grid">
+        <div class="reward-card">
+          <div class="reward-card__stamps">
+            <img src="Assets/StampPutih_SSL.png" alt="Stamp" class="reward-stamp-img" width="64" height="64" loading="lazy" />
+            <span class="reward-card__count">6 Stempel</span>
+          </div>
+          <p class="reward-card__bonus">Ekstra cuci <strong>5 kg</strong></p>
+        </div>
+
+        <div class="reward-card reward-card--mid">
+          <div class="reward-card__stamps">
+            <img src="Assets/StampPutih_SSL.png" alt="Stamp" class="reward-stamp-img" width="64" height="64" loading="lazy" />
+            <span class="reward-card__count">12 Stempel</span>
+          </div>
+          <p class="reward-card__bonus">Ekstra cuci <strong>10 kg</strong></p>
+        </div>
+
+        <div class="reward-card">
+          <div class="reward-card__stamps">
+            <img src="Assets/StampPutih_SSL.png" alt="Stamp" class="reward-stamp-img" width="64" height="64" loading="lazy" />
+            <span class="reward-card__count">18 Stempel</span>
+          </div>
+          <p class="reward-card__bonus">Ekstra cuci <strong>15 kg</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="Assets/Logo-SSL.png" alt="ScentStation Laundry" class="footer__logo" width="88" height="44" loading="lazy" />
+        <p class="footer__tagline">Choose Your Scent, Love The Freshness</p>
+      </div>
+      <div class="footer__copy">
+        <span>© 2026 ScentStation Laundry</span>
+        <span class="footer__divider">·</span>
+        <button type="button" class="link-btn" id="openPrivacyFooter">Privacy Policy</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================
+       THANK YOU POP-UP
+  ========================================== -->
+  <div class="overlay" id="thankyouOverlay" role="dialog" aria-modal="true" aria-labelledby="thankyouTitle" hidden>
+    <div class="popup popup--thankyou">
+      <button class="popup__close" id="closeThankyou" aria-label="Tutup">&#x2715;</button>
+      <img src="Assets/voucherbox-icon.png" alt="Voucher ScentStation Laundry" class="popup__voucher-img" />
+      <h2 class="popup__title" id="thankyouTitle">Kamu sudah masuk daftar!</h2>
+      <p class="popup__body" id="thankyouBody">
+        Terima kasih sudah gabung Waiting List ScentStation Laundry,
+        <strong id="thankyouName"></strong>.
+        Kami akan DM kamu di Instagram begitu kami resmi buka. Sampai jumpa!
+      </p>
+      <button class="btn btn--primary" id="closeThankyouBtn">Tutup</button>
+    </div>
+  </div>
+
+  <!-- =========================================
+       PRIVACY POLICY POP-UP
+  ========================================== -->
+  <div class="overlay" id="privacyOverlay" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" hidden>
+    <div class="popup popup--privacy">
+      <button class="popup__close" id="closePrivacy" aria-label="Tutup">&#x2715;</button>
+      <h2 class="popup__title" id="privacyTitle">Privacy Policy</h2>
+      <div class="privacy-content" id="privacyContent">
+        <p class="privacy-effective"><strong>Berlaku sejak:</strong> <span id="privacyDate"></span></p>
+
+        <h3>1. Siapa Kami</h3>
+        <p>ScentStation Laundry adalah layanan laundry antar-jemput dengan personalisasi aroma yang sedang bersiap beroperasi di wilayah Alam Sutera, Gading Serpong, dan BSD. Saat ini kami berada pada tahap pra-launching. Kami berkomitmen untuk melindungi privasi dan data pribadi calon pelanggan kami sesuai dengan ketentuan peraturan perundang-undangan yang berlaku.</p>
+
+        <h3>2. Data yang Kami Kumpulkan</h3>
+        <p>Melalui formulir pendaftaran waitlist pra-launching ini, kami mengumpulkan:</p>
+        <ul>
+          <li><strong>Nama</strong>: untuk mengidentifikasi dan menyapa kamu secara personal.</li>
+          <li><strong>Username Instagram</strong>: sebagai saluran komunikasi utama terkait informasi peluncuran layanan.</li>
+        </ul>
+        <p>Kami tidak mengumpulkan nomor telepon, alamat email, alamat fisik, atau data keuangan pada tahap ini.</p>
+
+        <h3>3. Tujuan Penggunaan Data</h3>
+        <p>Data yang kamu berikan digunakan semata-mata untuk:</p>
+        <ul>
+          <li>Mengirimkan informasi peluncuran resmi ScentStation Laundry kepadamu.</li>
+          <li>Menghubungi kamu terkait penawaran early bird bagi pendaftar awal.</li>
+          <li>Memasukkan namamu ke dalam waiting list pelanggan pertama ScentStation Laundry.</li>
+        </ul>
+
+        <h3>4. Penyimpanan Data</h3>
+        <p>Data kamu disimpan secara aman dan hanya dapat diakses oleh tim internal ScentStation Laundry. Kami tidak menyimpan data di server pihak ketiga yang tidak terpercaya.</p>
+
+        <h3>5. Tidak Ada Pembagian Data ke Pihak Ketiga</h3>
+        <p>ScentStation Laundry <strong>tidak menjual, menyewakan, atau membagikan</strong> data pribadimu kepada pihak ketiga mana pun — termasuk pengiklan, mitra bisnis, atau platform lain — tanpa persetujuan eksplisit darimu.</p>
+
+        <h3>6. Hak Kamu atas Data Pribadi</h3>
+        <p>Kamu berhak untuk:</p>
+        <ul>
+          <li>Meminta akses ke data pribadi yang telah kamu berikan.</li>
+          <li>Meminta penghapusan datamu dari sistem kami kapan saja.</li>
+          <li>Menarik persetujuan dan berhenti menerima komunikasi dari kami.</li>
+        </ul>
+        <p>Untuk menggunakan hak-hak tersebut, hubungi kami melalui Instagram <strong>@scentstation.laundry</strong>.</p>
+
+        <h3>7. Keamanan Data</h3>
+        <p>Kami menerapkan langkah-langkah keamanan yang wajar untuk melindungi data pribadimu dari akses tidak sah, perubahan, pengungkapan, atau penghancuran.</p>
+
+        <h3>8. Perubahan Kebijakan</h3>
+        <p>ScentStation Laundry dapat memperbarui Privacy Policy ini sewaktu-waktu. Perubahan signifikan akan diinformasikan melalui Instagram kami. Tanggal pembaruan akan selalu tercantum di bagian atas dokumen ini.</p>
+
+        <h3>9. Hubungi Kami</h3>
+        <p>Jika kamu memiliki pertanyaan tentang Privacy Policy ini, silakan hubungi kami melalui:<br />
+        Instagram: <strong>@scentstation.laundry</strong></p>
+      </div>
+      <button class="btn btn--primary popup__close-btn" id="closePrivacyBtn">Mengerti</button>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas" title="Kembali ke atas">
+    &#8679;
+  </button>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
