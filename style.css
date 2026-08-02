@@ -1289,10 +1289,10 @@ body.dark-mode .theme-toggle__thumb {
 
 .footer__inner {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .footer__logo-wrap {
@@ -1303,7 +1303,7 @@ body.dark-mode .theme-toggle__thumb {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 12px;
+  margin: 0 0 12px;
   box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
@@ -1340,7 +1340,7 @@ body.dark-mode .theme-toggle__thumb {
   font-size: .8rem;
   color: rgba(255, 255, 255, .45);
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .footer__copy .link-btn {
@@ -1355,6 +1355,87 @@ body.dark-mode .theme-toggle__thumb {
 
 .footer__divider {
   opacity: .4;
+}
+
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+/* Social Buttons in Footer */
+.footer__socials {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  max-width: 40px; /* Initially only fits the icon */
+  white-space: nowrap;
+}
+
+.social-btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: transform 0.35s ease;
+}
+
+.social-btn__text {
+  opacity: 0;
+  max-width: 0;
+  margin-left: 0;
+  transition: opacity 0.25s ease, max-width 0.25s ease, margin-left 0.25s ease;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+/* Hover expansion effects */
+.social-btn:hover {
+  max-width: 150px; /* Expands to fit text */
+  padding: 0 16px;
+  box-shadow: var(--shadow-md);
+}
+
+.social-btn--facebook:hover {
+  background: #1877f2;
+  color: var(--white);
+  border-color: #1877f2;
+}
+
+.social-btn--instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: var(--white);
+  border-color: transparent;
+}
+
+.social-btn:hover .social-btn__text {
+  opacity: 1;
+  max-width: 100px;
+  margin-left: 8px;
+}
+
+.social-btn:hover .social-btn__icon {
+  transform: rotate(360deg);
 }
 
 /* ── 15. OVERLAYS & POPUPS ───────────────────── */
@@ -1973,9 +2054,33 @@ body.dark-mode .theme-toggle__thumb {
     padding: 32px 0;
   }
 
+  .footer__inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .footer__brand {
+    text-align: center;
+  }
+
+  .footer__logo-wrap {
+    margin: 0 auto 12px;
+  }
+
+  .footer__right {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer__socials {
+    justify-content: center;
+  }
+
   .footer__copy {
     flex-direction: column;
     gap: 8px;
+    justify-content: center;
   }
 
   .footer__divider {
