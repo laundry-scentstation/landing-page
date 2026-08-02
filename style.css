@@ -2086,59 +2086,52 @@ body.dark-mode .theme-toggle__thumb {
   .footer__divider {
     display: none;
   }
-
-  /* back to top */
-  .back-to-top {
+  /* klaim voucher */
+  .klaim-voucher {
     bottom: 18px;
     right: 18px;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
+    width: 52px;
+    height: 52px;
   }
 }
 
 /* ── 18. BACK TO TOP ─────────────────────────── */
-.back-to-top {
+.klaim-voucher {
   position: fixed;
   bottom: 32px;
   right: 32px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--navy);
-  color: var(--white);
-  font-size: 1.5rem;
-  line-height: 1;
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-md);
   cursor: pointer;
   opacity: 0;
   transform: translateY(12px);
   pointer-events: none;
-  transition: opacity .3s ease, transform .3s ease, background .2s ease;
+  transition: opacity .3s ease, transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 900;
   border: none;
+  background: transparent;
+  box-shadow: none;
 }
 
-.back-to-top.visible {
+.klaim-voucher.visible {
   opacity: 1;
   transform: translateY(0);
   pointer-events: all;
 }
 
-.back-to-top:hover {
-  background: #2a3f70;
-  transform: translateY(-2px);
+.klaim-voucher:hover {
+  transform: scale(1.15);
 }
 
-.back-to-top__icon {
-  width: 24px;
-  height: 24px;
+.klaim-voucher__icon {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   animation: bounceSmall 2s infinite ease-in-out;
-  filter: brightness(0) invert(1); /* makes the icon white */
+  filter: none; /* keep original colorful gift box colors */
 }
 
 @keyframes bounceSmall {
@@ -2146,7 +2139,7 @@ body.dark-mode .theme-toggle__thumb {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
   }
 }
 

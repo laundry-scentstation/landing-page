@@ -29,7 +29,7 @@ const closePrivacyBtn = document.getElementById('closePrivacyBtn');
 const privacyDateEl   = document.getElementById('privacyDate');
 
 const navbar          = document.getElementById('navbar');
-const backToTopBtn    = document.getElementById('backToTop');
+const klaimVoucherBtn = document.getElementById('klaimVoucher');
 const themeToggleBtn  = document.getElementById('themeToggle');
 
 /* ─── 1. PRIVACY POLICY DATE ─────────────────────────────────────────────── */
@@ -146,12 +146,12 @@ window.addEventListener('scroll', () => {
   const y = window.scrollY;
   // navbar
   if (navbar) navbar.classList.toggle('scrolled', y > 20);
-  // back to top
-  if (backToTopBtn) backToTopBtn.classList.toggle('visible', y > 400);
+  // klaim voucher
+  if (klaimVoucherBtn) klaimVoucherBtn.classList.toggle('visible', y > 400);
 }, { passive: true });
 
-backToTopBtn && backToTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+klaimVoucherBtn && klaimVoucherBtn.addEventListener('click', () => {
+  scrollToHero();
 });
 
 /* ─── 8. FADE-UP SCROLL ANIMATIONS ──────────────────────────────────────── */
