@@ -654,7 +654,25 @@ body.dark-mode .theme-toggle__thumb {
   width: 18px;
   height: 18px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+}
+
+/* Featured chip — stand out variant */
+.chip--featured {
+  background: var(--accent-grad);
+  border-color: transparent;
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(196, 178, 228, .45);
+  letter-spacing: .01em;
+}
+
+.chip--featured .chip__icon {
+  width: 20px;
+  height: 20px;
+  filter: none; /* icon tetap natural karena background terang */
 }
 
 /* ── 8. LEAD FORM CARD ───────────────────────── */
@@ -1886,6 +1904,17 @@ body.dark-mode .theme-toggle__thumb {
     padding: 3px 8px;
     gap: 4px;
     border-radius: 999px;
+  }
+
+  .chip--featured {
+    font-size: .78rem;
+    padding: 6px 12px;
+    gap: 5px;
+  }
+
+  .chip--featured .chip__icon {
+    width: 14px;
+    height: 14px;
   }
 
   .chip__icon {
