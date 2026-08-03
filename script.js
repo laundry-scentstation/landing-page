@@ -123,6 +123,14 @@ leadForm.addEventListener('submit', async function (e) {
   } finally {
     thankyouName.textContent = nama;
     openPopup(thankyouOverlay);
+
+    // GA4 — lead conversion event
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'generate_lead',
+      lead_name: nama,
+      lead_instagram: instagram,
+    });
     leadForm.reset();
     submitBtn.disabled = false;
     submitBtn.textContent = orig;
