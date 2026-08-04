@@ -99,42 +99,34 @@ closePrivacy.addEventListener('click',    () => closePopup(privacyOverlay));
 closePrivacyBtn.addEventListener('click', () => closePopup(privacyOverlay));
 
 /* ─── 5. FORM SUBMIT → GOOGLE SHEETS ────────────────────────────────────── */
-leadForm.addEventListener('submit', async function (e) {
+leadForm.addEventListener('submit', function (e) {
   e.preventDefault();
   if (!validateForm()) return;
-
-  submitBtn.disabled = true;
-  const orig = submitBtn.textContent;
-  submitBtn.textContent = 'Mengirim...';
 
   const nama      = namaInput.value.trim();
   const instagram = igInput.value.trim();
   const timestamp = new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' });
 
-  try {
-    await fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ nama, instagram, timestamp }).toString(),
-    });
-  } catch (err) {
-    console.warn('Submission error:', err);
-  } finally {
-    thankyouName.textContent = nama;
-    openPopup(thankyouOverlay);
+  // Tampilkan popup & reset form LANGSUNG — tidak menunggu fetch selesai
+  thankyouName.textContent = nama;
+  openPopup(thankyouOverlay);
+  leadForm.reset();
 
-    // GA4 — lead conversion event
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'generate_lead',
-      lead_name: nama,
-      lead_instagram: instagram,
-    });
-    leadForm.reset();
-    submitBtn.disabled = false;
-    submitBtn.textContent = orig;
-  }
+  // GA4 — lead conversion event (langsung setelah popup)
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'generate_lead',
+    lead_name: nama,
+    lead_instagram: instagram,
+  });
+
+  // Kirim data ke Google Sheets di background — tidak memblok UI
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ nama, instagram, timestamp }).toString(),
+  }).catch(err => console.warn('Submission error:', err));
 });
 
 /* ─── 6. SCROLL TO HERO (all #hero anchors + legacy onclick) ────────────── */
