@@ -106,13 +106,10 @@ leadForm.addEventListener('submit', function (e) {
   const instagram = igInput.value.trim();
   const timestamp = new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' });
 
-  // Kirim data ke Google Sheets di background — tidak memblok UI
-  fetch(APPS_SCRIPT_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ nama, instagram, timestamp }).toString(),
-  }).catch(err => console.warn('Submission error:', err));
+  // Tampilkan popup LANGSUNG
+  thankyouName.textContent = nama;
+  openPopup(thankyouOverlay);
+  leadForm.reset();
 
   // GA4 — lead conversion event
   window.dataLayer = window.dataLayer || [];
@@ -122,8 +119,13 @@ leadForm.addEventListener('submit', function (e) {
     lead_instagram: instagram,
   });
 
-  // Redirect ke thank-you page dengan nama sebagai URL parameter
-  window.location.href = '/thank-you?name=' + encodeURIComponent(nama);
+  // Kirim data ke Google Sheets di background — tidak memblok UI
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ nama, instagram, timestamp }).toString(),
+  }).catch(err => console.warn('Submission error:', err));
 });
 
 /* ─── 6. SCROLL TO HERO (all #hero anchors + legacy onclick) ────────────── */
