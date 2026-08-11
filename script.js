@@ -17,10 +17,10 @@ const namaError       = document.getElementById('namaError');
 const igError         = document.getElementById('instagramError');
 const consentError    = document.getElementById('consentError');
 
-const thankyouOverlay  = null;
-const thankyouName     = null;
-const closeThankyou    = null;
-const closeThankyouBtn = null;
+const thankyouOverlay  = document.getElementById('thankyouOverlay');
+const thankyouName     = document.getElementById('thankyouName');
+const closeThankyou    = document.getElementById('closeThankyou');
+const closeThankyouBtn = document.getElementById('closeThankyouBtn');
 
 const privacyOverlay  = document.getElementById('privacyOverlay');
 const openPrivacyBtns = document.querySelectorAll('#openPrivacyPolicy, #openPrivacyFooter');
@@ -113,6 +113,14 @@ leadForm.addEventListener('submit', function (e) {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({ nama, instagram, timestamp }).toString(),
   }).catch(err => console.warn('Submission error:', err));
+
+  // GA4 — lead conversion event
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'generate_lead',
+    lead_name: nama,
+    lead_instagram: instagram,
+  });
 
   // Redirect ke thank-you page dengan nama sebagai URL parameter
   window.location.href = '/thank-you?name=' + encodeURIComponent(nama);
