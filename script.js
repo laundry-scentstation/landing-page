@@ -85,14 +85,15 @@ function closePopup(overlay) {
   document.body.style.overflow = '';
 }
 
-thankyouOverlay && thankyouOverlay.addEventListener('click', e => { if (e.target === thankyouOverlay) closePopup(thankyouOverlay); });
+thankyouOverlay.addEventListener('click', e => { if (e.target === thankyouOverlay) closePopup(thankyouOverlay); });
 privacyOverlay.addEventListener('click',  e => { if (e.target === privacyOverlay)  closePopup(privacyOverlay); });
 document.addEventListener('keydown', e => {
   if (e.key !== 'Escape') return;
+  if (!thankyouOverlay.hasAttribute('hidden')) closePopup(thankyouOverlay);
   if (!privacyOverlay.hasAttribute('hidden'))  closePopup(privacyOverlay);
 });
-closeThankyou    && closeThankyou.addEventListener('click',    () => closePopup(thankyouOverlay));
-closeThankyouBtn && closeThankyouBtn.addEventListener('click', () => closePopup(thankyouOverlay));
+closeThankyou.addEventListener('click',    () => closePopup(thankyouOverlay));
+closeThankyouBtn.addEventListener('click', () => closePopup(thankyouOverlay));
 openPrivacyBtns.forEach(b => b.addEventListener('click', e => { e.preventDefault(); openPopup(privacyOverlay); }));
 closePrivacy.addEventListener('click',    () => closePopup(privacyOverlay));
 closePrivacyBtn.addEventListener('click', () => closePopup(privacyOverlay));
