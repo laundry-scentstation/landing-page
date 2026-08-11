@@ -17,10 +17,10 @@ const namaError       = document.getElementById('namaError');
 const igError         = document.getElementById('instagramError');
 const consentError    = document.getElementById('consentError');
 
-const thankyouOverlay  = document.getElementById('thankyouOverlay');
-const thankyouName     = document.getElementById('thankyouName');
-const closeThankyou    = document.getElementById('closeThankyou');
-const closeThankyouBtn = document.getElementById('closeThankyouBtn');
+const thankyouOverlay  = null;
+const thankyouName     = null;
+const closeThankyou    = null;
+const closeThankyouBtn = null;
 
 const privacyOverlay  = document.getElementById('privacyOverlay');
 const openPrivacyBtns = document.querySelectorAll('#openPrivacyPolicy, #openPrivacyFooter');
@@ -85,15 +85,14 @@ function closePopup(overlay) {
   document.body.style.overflow = '';
 }
 
-thankyouOverlay.addEventListener('click', e => { if (e.target === thankyouOverlay) closePopup(thankyouOverlay); });
+thankyouOverlay && thankyouOverlay.addEventListener('click', e => { if (e.target === thankyouOverlay) closePopup(thankyouOverlay); });
 privacyOverlay.addEventListener('click',  e => { if (e.target === privacyOverlay)  closePopup(privacyOverlay); });
 document.addEventListener('keydown', e => {
   if (e.key !== 'Escape') return;
-  if (!thankyouOverlay.hasAttribute('hidden')) closePopup(thankyouOverlay);
   if (!privacyOverlay.hasAttribute('hidden'))  closePopup(privacyOverlay);
 });
-closeThankyou.addEventListener('click',    () => closePopup(thankyouOverlay));
-closeThankyouBtn.addEventListener('click', () => closePopup(thankyouOverlay));
+closeThankyou    && closeThankyou.addEventListener('click',    () => closePopup(thankyouOverlay));
+closeThankyouBtn && closeThankyouBtn.addEventListener('click', () => closePopup(thankyouOverlay));
 openPrivacyBtns.forEach(b => b.addEventListener('click', e => { e.preventDefault(); openPopup(privacyOverlay); }));
 closePrivacy.addEventListener('click',    () => closePopup(privacyOverlay));
 closePrivacyBtn.addEventListener('click', () => closePopup(privacyOverlay));
@@ -107,19 +106,6 @@ leadForm.addEventListener('submit', function (e) {
   const instagram = igInput.value.trim();
   const timestamp = new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' });
 
-  // Tampilkan popup & reset form LANGSUNG — tidak menunggu fetch selesai
-  thankyouName.textContent = nama;
-  openPopup(thankyouOverlay);
-  leadForm.reset();
-
-  // GA4 — lead conversion event (langsung setelah popup)
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: 'generate_lead',
-    lead_name: nama,
-    lead_instagram: instagram,
-  });
-
   // Kirim data ke Google Sheets di background — tidak memblok UI
   fetch(APPS_SCRIPT_URL, {
     method: 'POST',
@@ -127,6 +113,9 @@ leadForm.addEventListener('submit', function (e) {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({ nama, instagram, timestamp }).toString(),
   }).catch(err => console.warn('Submission error:', err));
+
+  // Redirect ke thank-you page dengan nama sebagai URL parameter
+  window.location.href = '/thank-you?name=' + encodeURIComponent(nama);
 });
 
 /* ─── 6. SCROLL TO HERO (all #hero anchors + legacy onclick) ────────────── */

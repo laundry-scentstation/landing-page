@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terima Kasih – ScentStation Laundry</title>
+  <meta name="description" content="Kamu sudah masuk waiting list ScentStation Laundry. Kami akan menghubungimu segera!" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="Assets/Favicon_SSL.png" />
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  </noscript>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTFJGKZ987"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CTFJGKZ987');
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '988923817155134');
+  fbq('track', 'PageView');
+  fbq('track', 'Lead');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=988923817155134&ev=Lead&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MBFFF9TH');</script>
+  <!-- End Google Tag Manager -->
+
+  <style>
+    .thankyou-page {
+      min-height: 100vh;
+      background:
+        linear-gradient(to bottom, rgba(20, 32, 64, .92) 0%, rgba(20, 32, 64, .75) 100%),
+        url('Assets/hero-bg.jpg') center center / cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .thankyou-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 56px 48px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .25);
+      animation: popIn .45s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: translateY(32px) scale(.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .thankyou-card__voucher {
+      width: 110px;
+      height: auto;
+      margin: 0 auto 28px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,.15));
+    }
+
+    .thankyou-card__title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #1E2E52;
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .thankyou-card__name {
+      color: #C4B2E4;
+    }
+
+    .thankyou-card__body {
+      font-size: .975rem;
+      color: #4a5568;
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    .thankyou-card__divider {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(135deg, #C4B2E4 0%, #F4C6D2 100%);
+      border-radius: 999px;
+      margin: 0 auto 28px;
+    }
+
+    .thankyou-card__ig {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #C4B2E4 0%, #F4C6D2 100%);
+      color: #1E2E52;
+      font-weight: 700;
+      font-size: .9rem;
+      padding: 10px 20px;
+      border-radius: 999px;
+      margin-bottom: 32px;
+      text-decoration: none;
+    }
+
+    .thankyou-card__ig:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .thankyou-card__back {
+      display: inline-block;
+      font-size: .875rem;
+      color: #6b7a99;
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+      transition: color .2s ease;
+    }
+
+    .thankyou-card__back:hover {
+      color: #1E2E52;
+    }
+
+    .thankyou-logo {
+      width: 80px;
+      height: auto;
+      margin: 0 auto 32px;
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .thankyou-card {
+        padding: 36px 24px;
+        border-radius: 20px;
+      }
+
+      .thankyou-card__title {
+        font-size: 1.35rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBFFF9TH"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="thankyou-page">
+    <div class="thankyou-card">
+
+      <img src="Assets/Logo-SSL.png" alt="ScentStation Laundry" class="thankyou-logo" />
+
+      <img src="Assets/voucherbox-icon.png" alt="Voucher" class="thankyou-card__voucher" />
+
+      <h1 class="thankyou-card__title">
+        Yeay, kamu sudah masuk daftar<span class="thankyou-card__name" id="greetName"></span>!
+      </h1>
+
+      <div class="thankyou-card__divider"></div>
+
+      <p class="thankyou-card__body">
+        Terima kasih sudah bergabung ke Waiting List ScentStation Laundry.<br />
+        Kami akan <strong>DM kamu di Instagram</strong> begitu kami resmi buka.
+        Pantau terus Instagram kami untuk info terbaru ya!
+      </p>
+
+      <a href="https://www.instagram.com/scentstation.laundry" target="_blank" rel="noopener noreferrer"
+        class="thankyou-card__ig">
+        📸 @scentstation.laundry
+      </a>
+
+      <br />
+
+      <button class="thankyou-card__back" onclick="window.location.href='/'">
+        ← Kembali ke halaman utama
+      </button>
+
+    </div>
+  </div>
+
+  <script>
+    // Ambil nama dari URL parameter ?name=...
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const nama = params.get('name');
+      const greetEl = document.getElementById('greetName');
+      if (nama && greetEl) {
+        greetEl.textContent = ', ' + decodeURIComponent(nama);
+      }
+
+      // GA4 — kirim event generate_lead saat halaman ini dimuat
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'generate_lead',
+        page_location: window.location.href,
+      });
+
+      // gtag generate_lead untuk GA4 direct
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead');
+      }
+    })();
+  </script>
+
+</body>
+</html>
