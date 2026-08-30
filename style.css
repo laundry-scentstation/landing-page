@@ -796,6 +796,17 @@ body.dark-mode .theme-toggle__thumb {
   margin-top: 18px;
 }
 
+.form-gdpr {
+  font-size: .75rem;
+  color: #8896b4;
+  line-height: 1.6;
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: rgba(169, 199, 232, .08);
+  border-left: 3px solid var(--soft-blue);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
 /* ── 9. VALUE CARDS ──────────────────────────── */
 .cards-3 {
   display: grid;
@@ -1309,7 +1320,7 @@ body.dark-mode .theme-toggle__thumb {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   text-align: left;
 }
 
