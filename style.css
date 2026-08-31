@@ -2098,10 +2098,14 @@ body.dark-mode .theme-toggle__thumb {
     flex-direction: column;
     text-align: center;
     gap: 24px;
+    align-items: center;
   }
 
   .footer__brand {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .footer__logo-wrap {
@@ -2121,6 +2125,8 @@ body.dark-mode .theme-toggle__thumb {
     flex-direction: column;
     gap: 8px;
     justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .footer__divider {
