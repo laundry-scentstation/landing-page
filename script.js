@@ -120,6 +120,9 @@ leadForm.addEventListener('submit', function (e) {
     lead_instagram: instagram,
   });
 
+  // Google Ads — conversion tracking
+  gtag('event', 'conversion', {'send_to': 'AW-18409890329/n2RmCJSuqvEcEJnEwspE'});
+
   // Kirim data ke Google Sheets di background — tidak memblok UI
   fetch(APPS_SCRIPT_URL, {
     method: 'POST',
